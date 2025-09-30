@@ -1,0 +1,16 @@
+# docker/Dockerfile
+FROM node:18-slim
+
+WORKDIR /usr/src/app
+
+# copy package.json & package-lock and install
+COPY app/package*.json ./
+RUN npm install
+
+COPY app/server.obf.js ./server.obf.js
+
+EXPOSE 3000
+
+# Prefer obfuscated file if present
+CMD [ "npm", "start" ]
+
