@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -f docker/dockerfile.dev -t $DOCKER_IMAGE:latest'
+                bat 'docker build -f docker/dockerfile.dev -t $DOCKER_IMAGE:latest .'
             }
         }
 
@@ -35,4 +35,5 @@ pipeline {
 
 
 }
+
 
