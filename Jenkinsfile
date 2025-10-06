@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -f docker/dockerfile.dev -t $DOCKER_IMAGE:latest .'
+                bat "docker build -f docker/dockerfile.dev -t %DOCKER_IMAGE%:latest ."
             }
         }
 
@@ -28,12 +28,13 @@ pipeline {
 
         stage("Push Image") {
             steps {
-                bat 'docker push $DOCKER_IMAGE:latest'
+                bat 'docker push %DOCKER_IMAGE%:latest'
             }
         }
     }
 
 
 }
+
 
 
